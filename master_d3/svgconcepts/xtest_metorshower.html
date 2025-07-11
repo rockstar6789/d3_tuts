@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<svg width="800" height="600" style="background:#000"></svg>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+const svg = d3.select("svg");
+
+const defs = svg.append("defs");
+defs.append("filter")
+    .attr("id", "glow")
+  .append("feGaussianBlur")
+    .attr("stdDeviation", 4)
+    .attr("result", "coloredBlur");
+
+function launchMeteor() {
+  const startX = Math.random() * 800;
+  const startY = -20;
+  const endX = startX + 100;
+  const endY = 600;
+
+  const line = svg.append("line")
+    .attr("x1", startX)
+    .attr("y1", startY)
+    .attr("x2", startX)
+    .attr("y2", startY)
+    .attr("stroke", "white")
+    .attr("stroke-width", 2)
+    .style("filter", "url(#glow)");
+
+  line.transition()
+    .duration(1200)
+    .attr("x2", endX)
+    .attr("y2", endY)
+    .style("opacity", 0)
+    .remove();
+
+  svg.append("circle")
+    .attr("cx", endX)
+    .attr("cy", endY)
+    .attr("r", 2)
+    .attr("fill", "orange")
+    .style("filter", "url(#glow)")
+    .transition()
+    .delay(1200)
+    .duration(1000)
+    .attr("r", 20)
+    .style("opacity", 0)
+    .remove();
+}
+
+// launch every 700ms
+setInterval(launchMeteor, 700);
+</script>
+
+	
+</body>
+</html>
