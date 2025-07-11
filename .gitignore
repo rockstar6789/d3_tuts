@@ -1,0 +1,15 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Archive & backup files
+*.zip
+*.log
+*.bak
+
+# Node modules (if you use npm later)
+node_modules/
+
+# IDE settings (optional)
+.vscode/
+.idea/
