@@ -1,0 +1,19 @@
+polyline{
+	stroke: grey;
+	fill: none;
+}
+rect{
+	fill: teal;
+}
+
+
+
+text{
+	fill: teal;
+	font-family: Arial;
+}
+
+text.name{
+	fill: white;
+}
+
