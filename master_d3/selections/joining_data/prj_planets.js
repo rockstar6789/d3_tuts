@@ -71,5 +71,10 @@ document.querySelector("#btn")
     setTimeout(() => {
       document.getElementById("msg").innerText = "";
     }, 1500); // timeout of 1.5 seconds
+    genDiameterChart(selOrder);
+    genDensityChart(selOrder);
+
+
+
   }
 })
